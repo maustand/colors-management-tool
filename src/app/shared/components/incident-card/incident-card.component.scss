@@ -1,13 +1,24 @@
 :host {
-    display: flex;
-    height: 4.438rem;
-    background-color: #fff;
-    padding: 1rem;
-    color: #797979;
-    align-items: center;
+  display: block;
+}
+
+.link {
+  display: flex;
+  height: 4.438rem;
+  background-color: #fff;
+  padding: 1rem;
+  color: #797979;
+  align-items: center;
+
+  &:hover {
+    border: 0.06rem solid #077df9 !important;
+    .name {
+      color: #077df9;
+    }
+  }
 }
 
 .color-box {
-    width: 1.5rem;
-    height: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }

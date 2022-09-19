@@ -25,4 +25,8 @@ export class IncidentsService {
   show(id: string): Observable<Incident> {
     return this.http.get<Incident>(`${this.entryPoint}/${id}`);
   }
+
+  create(incident: Incident): Observable<Incident> {
+    return this.http.post<Incident>(`${this.entryPoint}/`, incident);
+  }
 }

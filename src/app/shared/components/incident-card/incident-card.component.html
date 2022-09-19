@@ -1,10 +1,16 @@
-<div class="col-1">
-  <div
-    class="color-box rounded"
-    [style.background-color]="incident.color"
-  ></div>
-</div>
-<div class="col-3">{{ incident.name }}</div>
-<div class="col">{{ incident.createdAt | date: dateFormatForPipe }}</div>
-<div class="col">{{ incident.updatedAt | date: dateFormatForPipe }}</div>
-<div class="col">{{ incident.createdBy }}</div>
+<a
+  routerLink="/{{ baseUrl }}/{{ incident.id }}"
+  class="text-decoration-none link"
+  href=""
+>
+  <div class="col-1">
+    <div
+      class="color-box rounded"
+      [style.background-color]="incident.color"
+    ></div>
+  </div>
+  <div class="col-3 name">{{ incident.name }}</div>
+  <div class="col">{{ incident.createdAt | date: dateFormatForPipe }}</div>
+  <div class="col">{{ incident.updatedAt | date: dateFormatForPipe }}</div>
+  <div class="col">{{ incident.createdBy }}</div>
+</a>

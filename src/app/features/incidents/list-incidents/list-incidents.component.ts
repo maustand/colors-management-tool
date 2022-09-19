@@ -2,10 +2,10 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  OnInit,
+  OnInit
 } from '@angular/core';
 import { Incident } from '@core/models/incident';
-import { IncidentsService } from '@core/services/api/incidents/incidents.service';
+import { IncidentsStore } from '@core/store/incidents/incidents.store.service';
 
 @Component({
   selector: 'ta9-list-incidents',
@@ -22,18 +22,22 @@ export class ListIncidentsComponent implements OnInit {
 
   isListView: boolean;
 
+  isRightSideBarOpen: boolean;
+
   constructor(
-    private incidentsServ: IncidentsService,
+    private incidentsStore: IncidentsStore,
+    
     private cdRef: ChangeDetectorRef
   ) {
     this.incidentsList = [];
     this.filteredList = [];
     this.queryText = '';
     this.isListView = true;
+    this.isRightSideBarOpen = false;
   }
 
   ngOnInit(): void {
-    this.incidentsServ.all().subscribe((data) => {
+    this.incidentsStore.getAll().subscribe((data) => {
       this.incidentsList = data;
       this.filteredList =  data;
       this.cdRef.markForCheck();

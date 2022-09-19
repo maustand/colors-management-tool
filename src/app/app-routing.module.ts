@@ -5,10 +5,10 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'colors',
+    redirectTo: 'incidents',
   },
   {
-    path: 'colors',
+    path: 'incidents',
     loadChildren: () =>
       import('./features/incidents/incidents.module').then(
         (m) => m.IncidentsModule

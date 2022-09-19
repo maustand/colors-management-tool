@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Incident } from '@core/models/incident';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
-import { v4 as uuidv4 } from 'uuid';
 
 /**
  * Emulates CRUD operations over a REST API and creates the initial fake data for the platform.
@@ -22,7 +21,7 @@ export class InMemoryFakeDataService implements InMemoryDbService {
 
     const incidents: Incident[] = [
       {
-        id: uuidv4(),
+        id: '1',
         name: 'torando',
         color: 'blue',
         description: 'tornado in chicago',
@@ -30,7 +29,7 @@ export class InMemoryFakeDataService implements InMemoryDbService {
         createdAt: this.subtractDate(today, 3).toISOString(),
       },
       {
-        id: uuidv4(),
+        id: '3',
         name: 'car incident',
         color: 'green',
         description: 'crash on ayalon street',
@@ -39,7 +38,7 @@ export class InMemoryFakeDataService implements InMemoryDbService {
         updatedAt: this.subtractDate(today, this.getRandomInt(8)).toISOString(),
       },
       {
-        id: uuidv4(),
+        id: '4',
         name: 'human trafficking',
         color: 'pink',
         description: 'Japanese human trafficking',
@@ -51,7 +50,7 @@ export class InMemoryFakeDataService implements InMemoryDbService {
       },
 
       {
-        id: uuidv4(),
+        id: '5',
         name: 'terrorist attack',
         color: 'yellow',
         createdBy: 'Mauricio',
@@ -62,7 +61,7 @@ export class InMemoryFakeDataService implements InMemoryDbService {
       },
 
       {
-        id: uuidv4(),
+        id: '6',
         name: 'murder',
         color: 'gray',
         description: 'killed on the beach',
@@ -71,7 +70,7 @@ export class InMemoryFakeDataService implements InMemoryDbService {
         updatedAt: this.subtractDate(today, 20).toISOString(),
       },
       {
-        id: uuidv4(),
+        id: '1654',
         name: 'murder on dallas',
         color: 'brown',
         description: 'mass shooting',

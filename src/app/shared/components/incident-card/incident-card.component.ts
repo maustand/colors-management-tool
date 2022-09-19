@@ -10,10 +10,13 @@ export class IncidentCardComponent {
 
   @Input() incident!: Incident;
 
+  @Input() baseUrl: string;
+
   dateFormatForPipe: string;
 
   constructor() { 
     this.dateFormatForPipe = 'dd/MM/yyy';
+    this.baseUrl = '';
   }
 
 }

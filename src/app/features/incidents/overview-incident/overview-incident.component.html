@@ -1,0 +1,19 @@
+<div class="d-flex flex-column">
+  <div class="toolbox">
+    <a routerLink="../">Go Back</a>
+  </div>
+
+  <dl *ngIf="myIncident$ | async as incidentData">
+    <dt>Incident Name</dt>
+    <dd>{{ incidentData.name }}</dd>
+
+    <dt>Description</dt>
+    <dd>{{ incidentData.description || "N/A" }}</dd>
+
+    <dt>Created Date</dt>
+    <dd>{{ incidentData.createdAt | date: "dd/MM/yyy" }}</dd>
+
+    <dt>Last Updated</dt>
+    <dd>{{ (incidentData.updatedAt | date: "dd/MM/yyy") || "N/A" }}</dd>
+  </dl>
+</div>

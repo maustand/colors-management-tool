@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListIncidentsComponent } from './list-incidents/list-incidents.component';
-import { OverviewColorComponent } from './overview-color/overview-color.component';
+import { OverviewIncidentComponent } from './overview-incident/overview-incident.component';
 
 
 const routes: Routes = [
@@ -11,7 +11,7 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: OverviewColorComponent,
+    component: OverviewIncidentComponent,
   },
 ];
 
