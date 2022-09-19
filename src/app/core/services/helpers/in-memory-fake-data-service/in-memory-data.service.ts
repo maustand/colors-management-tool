@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Incident } from '@core/models/incident';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
+import { v4 as uuidv4 } from 'uuid';
 
 /**
  * Emulates CRUD operations over a REST API and creates the initial fake data for the platform.
@@ -79,6 +80,10 @@ export class InMemoryFakeDataService implements InMemoryDbService {
       },
     ];
     return { incidents };
+  }
+
+  genId(incidents: Incident[]): string {
+    return incidents.length > 0 ? uuidv4() : uuidv4() + 1
   }
 
   private getRandomInt(max: number): number {

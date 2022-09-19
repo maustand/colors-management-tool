@@ -1,0 +1,15 @@
+<div
+  [class.p-4]="isOpen"
+  [class.opened]="isOpen"
+  class="sidenav d-flex flex-column"
+>
+  <button
+    type="button"
+    class="close-btn btn ms-auto"
+    (click)="sideBarClosed.emit()"
+  >
+    X
+  </button>
+
+  <ng-content></ng-content>
+</div>

@@ -1,22 +1,22 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Incident } from '@core/models/incident';
 
 @Component({
   selector: 'ta9-incident-card',
   templateUrl: './incident-card.component.html',
-  styleUrls: ['./incident-card.component.scss']
+  styleUrls: ['./incident-card.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IncidentCardComponent {
 
   @Input() incident!: Incident;
 
-  @Input() baseUrl: string;
+  @Input() basePath: string;
 
   dateFormatForPipe: string;
 
   constructor() { 
     this.dateFormatForPipe = 'dd/MM/yyy';
-    this.baseUrl = '';
+    this.basePath = '';
   }
-
 }

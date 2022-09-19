@@ -1,0 +1,24 @@
+
+<h4>Create New</h4>
+
+<form [formGroup]="newIncidentForm" (ngSubmit)="onSubmit()" class="row g-3">
+  <div class="col-md-10">
+    <label for="name-incident-form-control" class="form-label">Name</label>
+    <input type="text" formControlName="name" class="form-control"  placeholder="Type tag name..." id="name-incident-form-control"  />
+  </div>
+
+  <div class="col-md-2">
+    <label for="color-incident-picker-form-control" class="form-label">Color</label>
+    <input type="color" formControlName="color" class="form-control" id="color-incident-picker-form-control" />
+  </div>
+
+  <div class="col-12">
+    <label for="tag-description-form-control" class="form-label">Tag Description</label>
+    <textarea formControlName="description" class="form-control" placeholder="Type tag description..." id="tag-description-form-control" rows="4"></textarea>
+  </div>
+
+  <div class="col-12 d-flex justify-content-between">
+    <button type="button" class="btn btn-outline-secondary" (click)="dismissed.emit()">Cancel</button>
+    <button type="submit" [disabled]="!newIncidentForm.valid" class="btn btn-success">Save</button>
+  </div>
+</form>

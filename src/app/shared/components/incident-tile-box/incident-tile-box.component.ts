@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Incident } from '@core/models/incident';
 
 @Component({
   selector: 'ta9-incident-tile-box',
   templateUrl: './incident-tile-box.component.html',
-  styleUrls: ['./incident-tile-box.component.scss']
+  styleUrls: ['./incident-tile-box.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IncidentTileBoxComponent {
 

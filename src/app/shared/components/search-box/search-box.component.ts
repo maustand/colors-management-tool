@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { debounceTime, filter, Subject, takeUntil } from 'rxjs';
 
@@ -6,8 +6,9 @@ import { debounceTime, filter, Subject, takeUntil } from 'rxjs';
   selector: 'ta9-search-box',
   templateUrl: './search-box.component.html',
   styleUrls: ['./search-box.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SearchBoxComponent implements OnInit {
+export class SearchBoxComponent implements OnInit, OnDestroy {
   @Input() placeholder?: string;
 
   @Output() searchTextChanged = new EventEmitter<string>();

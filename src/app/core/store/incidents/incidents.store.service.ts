@@ -22,8 +22,16 @@ export class IncidentsStore extends Store<Incident[]> {
         );
   }
 
-  create(item: Incident) {
-    return this.incidentsServ.create(item).subscribe((newIncident) => {
+  create(item: Incident): void {
+    // fake data for the acsignemnt
+    // user should come from login and createdAt default by db
+    const fakeData: Incident = {
+      ...item,
+      createdBy: 'Mauricio',
+      createdAt: new Date().toISOString(),
+    };
+
+    this.incidentsServ.create(fakeData).subscribe((newIncident) => {
       this.setState([...this.state, newIncident]);
     });
   }
@@ -31,9 +39,7 @@ export class IncidentsStore extends Store<Incident[]> {
   findById(incidentId: string): Observable<Incident> {
     return this.select((list) => list.find((i) => i.id === incidentId)).pipe(
       switchMap((stream) => {
-        return (stream?.id)
-          ? of(stream)
-          : this.incidentsServ.show(incidentId);
+        return stream?.id ? of(stream) : this.incidentsServ.show(incidentId);
       })
     );
   }

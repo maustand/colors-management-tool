@@ -1,0 +1,15 @@
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #f8f8f8; /* Black*/
+  overflow-x: hidden;
+  transition: 0.5s;
+
+  &.opened {
+    width: 34.375rem;
+  }
+}
