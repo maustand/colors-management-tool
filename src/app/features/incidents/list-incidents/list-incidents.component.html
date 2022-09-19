@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-4">
+    <h4 class="title">Management Tool</h4>
+  </div>
+  <div class="col-4 ms-auto">
+    <button type="button" class="btn" (click)="toggleViewMode()">
+      Tiles Mode
+    </button>
+    <button type="button" class="btn" (click)="toggleViewMode()">List</button>
+    <button type="button" class="btn">Add</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <ta9-search-box
+      [placeholder]="'Find by name...'"
+      (searchTextChanged)="onSearchTextChanged($event)"
+    >
+    </ta9-search-box>
+  </div>
+</div>
+
+<div class="row list" *ngIf="incidentsList.length > 0">
+  <div class="col" *ngIf="isListView; else tileListTpl">
+    <ta9-incident-card
+      class="my-2"
+      *ngFor="let item of filteredList; trackBy: trackByFn"
+      [incident]="item"
+    ></ta9-incident-card>
+  </div>
+</div>
+
+<ng-template #tileListTpl>
+
+  <div class="col my-2" *ngFor="let item of filteredList; trackBy: trackByFn">
+    <ta9-incident-tile-box [incident]="item"></ta9-incident-tile-box>
+  </div>
+    
+</ng-template>
+
+<!-- <label for="exampleColorInput" class="form-label">Color picker</label>
+<input
+  type="color"
+  class="form-control form-control-color"
+  id="exampleColorInput"
+  value="#563d7c"
+  title="Choose your color"
+/> -->
