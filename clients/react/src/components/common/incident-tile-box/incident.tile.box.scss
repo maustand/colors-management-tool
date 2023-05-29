@@ -1,0 +1,31 @@
+$color-box-size: 5rem;
+
+.card {
+  width: 12.75rem;
+  height: 13.063rem;
+
+  &:hover {
+    border-color: #077df9 !important;
+    .color-box {
+      width: calc($color-box-size + 1rem);
+      height: calc($color-box-size + 1rem);
+    }
+
+    .card-footer {
+      color: #077df9;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+  }
+}
+
+.color-box {
+  width: $color-box-size;
+  height: $color-box-size;
+}
+
+.card-footer {
+  background-color: #f6f6f6;
+  color: #838383;
+  height: 2.9rem;
+}
